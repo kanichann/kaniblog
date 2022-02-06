@@ -38,7 +38,7 @@ export default function Home(props) {
           <Link href="/"><a className='btn-sub'>詳しく見る</a></Link>
         </section>
         {/* <div className='flex justify-center gap-16 md:gap-x-8 sm:flex-col sm:gap-8'>
-          <div className='w-ful'>
+          <div className='w-full'>
             <dl>
               <dt className='title-sec2'>About</dt>
               <dd>
