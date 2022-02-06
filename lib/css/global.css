@@ -22,6 +22,7 @@
         background-image: repeat-linear-gradient(to bottom :right, var(--gradient-color-stops));
     }
 } */
+
 .btn{
     @apply inline-block bg-transparent py-3 px-12 text-white shadow-gray-300  shadow-md border border-orange-300 border-solid hover:bg-white transition-all hover:text-orange-600 before:content-[''] relative ;
 }
@@ -53,6 +54,11 @@
     @apply text-gray-600 relative text-2xl mb-4 ;
 }
 
+.posts-item{
+    letter-spacing: 0;
+                word-spacing: 0;
+                font-size: 0;
+}
 
 .markdown ol {
     @apply list-decimal pl-10;
