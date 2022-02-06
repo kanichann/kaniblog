@@ -1,209 +1,88 @@
 import Head from 'next/head'
+import Link from 'next/link'
+import Image from 'next/image'
+import { Fragment } from 'react'
+import PostList from '../components/posts/post-list'
+import About from '../components/about'
+import { getFeaturedPosts, getAllPosts, getTags } from '../lib/js/posts-util'
 
-export default function Home() {
+export default function Home(props) {
+
   return (
-    <div className="container">
+    <Fragment>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>KaniBlog</title>
+        <meta name='description' content='WEB関係のお仕事をしております。日々の学習について気ままに発信します。' />
       </Head>
+      <div className='text-center'>
+        <Image src='/img/mv.jpg' width={1440} height={960} />
+      </div>
+      <article>
+        <section className='mt-16 mb-24'>
+          <h2 className='title-sec2'>人気の記事</h2>
+          <PostList posts={props.featuredPosts} />
+          <div className='text-right'>
+            <Link href="/"><a className='btn'>他の記事</a></Link>
+          </div>
+        </section>
+        <section className='mt-16 mb-24'>
+          <h2 className='title-sec2'>新着記事</h2>
+          <PostList posts={props.allPosts} />
+          <div className='text-right'>
+            <Link href="/"><a className='btn'>他の記事</a></Link>
+          </div>
+        </section>
+        <section className='text-center mx-auto border-gray-200 bg-gray-50 border-2 py-4 border-solid w-3/5 md:w-full'>
+          <h2 className='title-sec2'>PORTFOLIO</h2>
+          <p className='mb-8'>日々の学習の記録、制作物はこちら</p>
+          <Link href="/"><a className='btn-sub'>詳しく見る</a></Link>
+        </section>
+        {/* <div className='flex justify-center gap-16 md:gap-x-8 sm:flex-col sm:gap-8'>
+          <div className='w-full'>
+            <dl>
+              <dt className='title-sec2'>About</dt>
+              <dd>
+                <p className='mb-2'>ゆるくWEBのフロントを勉強中です。</p>
+                <ul>
+                  <li><a href="" className='w-10 inline-block'><Image objectFit='contein' src='/sns/twitter.png' width={40} height={40} /></a></li>
+                </ul>
+              </dd>
+            </dl>
+          </div>
+          <div className='w-full'>
+            <dl>
+              <dt className='title-sec2'>TAG</dt>
+              <dd>
+                <ul className='flex gap-4 flex-wrap'>
+                  {props.tags.map(tag => (<li key={tag} className='rounded-full border border-solid border-gray-300 bg-gray-100 px-3 text-gray-600 btn-bg'><Link href={`/tag/${tag}`}>{tag}</Link></li>))}
+                </ul></dd>
+            </dl>
+          </div>
+        </div> */}
+        <About tags={props.tags}/>
+        
+      </article>
+    </Fragment>
 
-      <main>
-        <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
-
-        <div className="grid">
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className="card">
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="card"
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="card"
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel" className="logo" />
-        </a>
-      </footer>
-
-      <style jsx>{`
-        .container {
-          min-height: 100vh;
-          padding: 0 0.5rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer img {
-          margin-left: 0.5rem;
-        }
-
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        a {
-          color: inherit;
-          text-decoration: none;
-        }
-
-        .title a {
-          color: #0070f3;
-          text-decoration: none;
-        }
-
-        .title a:hover,
-        .title a:focus,
-        .title a:active {
-          text-decoration: underline;
-        }
-
-        .title {
-          margin: 0;
-          line-height: 1.15;
-          font-size: 4rem;
-        }
-
-        .title,
-        .description {
-          text-align: center;
-        }
-
-        .description {
-          line-height: 1.5;
-          font-size: 1.5rem;
-        }
-
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-        }
-
-        .grid {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-wrap: wrap;
-
-          max-width: 800px;
-          margin-top: 3rem;
-        }
-
-        .card {
-          margin: 1rem;
-          flex-basis: 45%;
-          padding: 1.5rem;
-          text-align: left;
-          color: inherit;
-          text-decoration: none;
-          border: 1px solid #eaeaea;
-          border-radius: 10px;
-          transition: color 0.15s ease, border-color 0.15s ease;
-        }
-
-        .card:hover,
-        .card:focus,
-        .card:active {
-          color: #0070f3;
-          border-color: #0070f3;
-        }
-
-        .card h3 {
-          margin: 0 0 1rem 0;
-          font-size: 1.5rem;
-        }
-
-        .card p {
-          margin: 0;
-          font-size: 1.25rem;
-          line-height: 1.5;
-        }
-
-        .logo {
-          height: 1em;
-        }
-
-        @media (max-width: 600px) {
-          .grid {
-            width: 100%;
-            flex-direction: column;
-          }
-        }
-      `}</style>
-
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-
-        * {
-          box-sizing: border-box;
-        }
-      `}</style>
-    </div>
   )
+}
+
+export function getStaticProps() {
+  let featuredPosts = getFeaturedPosts();
+  if (featuredPosts.length > 3) {
+    featuredPosts = featuredPosts.slice(0, 3)
+  }
+  let allPosts = getAllPosts();
+  if (featuredPosts.length > 3) {
+    allPosts = allPosts.slice(0, 3)
+  }
+  const tags = getTags();
+  return {
+    props: {
+      featuredPosts: featuredPosts,
+      allPosts: allPosts,
+      tags: tags
+    },
+    // revalidate:60
+  }
 }
