@@ -1,6 +1,6 @@
 import { Fragment } from "react"
 import PostList from "../../components/posts/post-list"
-import { featuredPosts, getTags } from "../../lib/js/posts-util";
+import { getFeaturedPosts, getTags } from "../../lib/js/posts-util";
 import Head from "next/head";
 import About from "../../components/about";
 function AllPosts(props) {
@@ -19,7 +19,7 @@ function AllPosts(props) {
     )
 }
 export function getStaticProps() {
-    const featuredPosts = featuredPosts();
+    const featuredPosts = getFeaturedPosts();
     const tags = getTags();
     return {
         props: {
