@@ -21,25 +21,25 @@ export default function Home(props) {
         </div>
       </div>
       <article>
-        <section className='mt-16 mb-24'>
+        {/* <section className='mt-16 mb-24'>
           <h2 className='title-sec2'>人気の記事</h2>
           <PostList posts={props.featuredPosts} />
           <div className='text-right'>
             <Link href="/"><a className='btn'>他の記事</a></Link>
           </div>
-        </section>
+        </section> */}
         <section className='mt-16 mb-24'>
           <h2 className='title-sec2'>新着記事</h2>
           <PostList posts={props.allPosts} />
           <div className='text-right'>
-            <Link href="/"><a className='btn'>他の記事</a></Link>
+            <Link href="/posts"><a className='btn'>他の記事</a></Link>
           </div>
         </section>
-        <section className='text-center mx-auto border-gray-200 bg-gray-50 border-2 py-4 border-solid w-3/5 md:w-full'>
+        {/* <section className='text-center mx-auto border-gray-200 bg-gray-50 border-2 py-4 border-solid w-3/5 md:w-full'>
           <h2 className='title-sec2'>PORTFOLIO</h2>
           <p className='mb-8'>日々の学習の記録、制作物はこちら</p>
           <Link href="/"><a className='btn-sub'>詳しく見る</a></Link>
-        </section>
+        </section> */}
         {/* <div className='flex justify-center gap-16 md:gap-x-8 sm:flex-col sm:gap-8'>
           <div className='w-full'>
             <dl>

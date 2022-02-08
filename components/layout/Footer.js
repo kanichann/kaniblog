@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 function Footer() {
 
     return ( <footer className='bg-gray-700 px-8 py-2 flex justify-between items-center text-white mt-auto sm:justify-center sm:flex-col-reverse' >

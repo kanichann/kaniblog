@@ -10,7 +10,7 @@ function About(props) {
                     <dd>
                         <p className='mb-2'>ゆるくWEBのフロントを勉強中です。</p>
                         <ul>
-                            <li><a href="" className='w-10 inline-block'><Image objectFit='contein' src='/sns/twitter.png' width={40} height={40} /></a></li>
+                            <li><a href="https://twitter.com/kanichan_on" target="_blank" rel="noopener noreferrer" className='w-10 inline-block'><Image objectFit='contein' src='/sns/twitter.png' width={40} height={40} /></a></li>
                         </ul>
                     </dd>
                 </dl>

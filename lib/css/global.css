@@ -54,18 +54,13 @@
     @apply text-gray-600 relative text-2xl mb-4 ;
 }
 
-.posts-item{
+.image-frame{
     letter-spacing: 0;
-                word-spacing: 0;
-                font-size: 0;
+    word-spacing: 0;
+    font-size: 0;
 }
 
-.markdown ol {
-    @apply list-decimal pl-10;
-  }
-  .markdown ul {
-    @apply list-disc pl-10;
-  }
+
   .markdown h4 {
     @apply text-gray-600 relative text-2xl mb-4 ;
   }
@@ -73,10 +68,16 @@
   .markdown h2 {
     @apply text-gray-600 text-3xl mb-4;
   }
-  .markdown p + h2{
-      @apply mt-8
+  .markdown * + h2{
+      @apply mt-12
+  }
+  .markdown p{
+      @apply mb-2
+  }
+  .markdown ol {
+    @apply list-decimal pl-10 my-3;
   }
   .markdown ul {
-    @apply list-disc pl-10;
+    @apply list-disc pl-10 py-3;
   }
   

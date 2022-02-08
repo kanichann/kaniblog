@@ -6,7 +6,7 @@ import { Fragment } from "react";
 import About from "../../components/about";
 
 function PostDetailPage(props) {
-    const { title, image, excerpt, date, content, slug } = props.post;
+    const { title, image, excerpt, date, content, slug, topImage } = props.post;
     const customRenderers = {
         img(image) {
             return (<Image src={`/img/posts/${slug}${image.src}`} alt={image.alt} height={600} width={300} />)
@@ -14,26 +14,27 @@ function PostDetailPage(props) {
         // h2({ node, ...props }) {
         //     return <h2>{props.children}</h2></section>
         // }
-    } 
+    }
+        const mainImage = (<div className="mt-2 mb-12 border border-gray-200 image-frame">
+            <Image src={`/img/posts/${image}`} alt="next.jsでブログを作った" width={672} height={448} />
+        </div>)
     return (
         <Fragment>
             <Head>
                 <title>{title}</title>
-                <meta name='description' content={ excerpt}/>
+                <meta name='description' content={excerpt} />
             </Head>
-        <article className="max-w-2xl">
-            <h1 className="title-sec1">{title}</h1>
-            <time>{date}</time>
-            <div>
-            <Image src={`/img/posts/${image}`}  width={1440} height={960}/>
-            </div>
-            <p>{excerpt}</p>
+            <article className="max-w-2xl">
+                <h1 className="title-sec1">{title}</h1>
+                <time>{date}</time>
+                {topImage && mainImage}
+                <p className=" mb-12">{excerpt}</p>
 
-            <ReactMarkdown className="markdown" components={customRenderers}>
-                {content}
-            </ReactMarkdown>
-            <About tags={props.tags}/>
-    </article>
+                <ReactMarkdown className="markdown" components={customRenderers}>
+                    {content}
+                </ReactMarkdown>
+                <About tags={props.tags} />
+            </article>
         </Fragment>
     )
 }
@@ -46,9 +47,9 @@ export function getStaticProps(context) {
     return {
         props: {
             post: postData,
-            tags:tags
+            tags: tags
         },
-        revalidate:600
+        revalidate: 600
     }
 };
 
@@ -56,8 +57,8 @@ export function getStaticPaths() {
     const postFilenames = postFiles();
     const slugs = postFilenames.map(fileName => fileName.replace(/\.md$/, ''));
     return {
-        paths: slugs.map(slug => ({params:{slug:slug}})),
-        fallback:'blocking'
+        paths: slugs.map(slug => ({ params: { slug: slug } })),
+        fallback: 'blocking'
     }
 }
 
