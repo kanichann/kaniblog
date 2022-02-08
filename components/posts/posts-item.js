@@ -9,7 +9,7 @@ function PostItem(props) {
             <Link href={`/posts/${slug}`}>
                 <a className="md:flex">
                     {/* <Image src={image} layout="fill" objectFit="contain"/> */}
-                    <div className="md:w-1/3 md:mr-3 border border-gray-200 align-top posts-item"><Image src={image} width={300} height={200} /></div>
+                    <div className="md:w-1/3 md:mr-3 border mb-4 border-gray-200 align-top posts-item"><Image src={image} width={300} height={200} /></div>
                     <div>
                     <time>{date}</time>
                     <p>{title}</p>

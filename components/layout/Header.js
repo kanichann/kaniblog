@@ -8,7 +8,7 @@ function Header() {
         <nav>
         <ul className='flex gap-x-6 sm:gap-x-2 items-center h-full text-sm'>
         <li> <Link  href='/'><a className='hover:opacity-50 transition-all'>HOME</a></Link></li>
-        <li> < Link href='/posts'><a className='hover:opacity-50 transition-all'>CATEGORY</a></Link></li>
+        <li> < Link href='/posts'><a className='hover:opacity-50 transition-all'>BLOG</a></Link></li>
         <li> <Link href='/contact'><a className='hover:opacity-50 transition-all'>CONTACT</a></Link></li>
         </ul> 
         </nav> 

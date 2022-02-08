@@ -11,6 +11,9 @@ function PostDetailPage(props) {
         img(image) {
             return (<Image src={`/img/posts/${slug}${image.src}`} alt={image.alt} height={600} width={300} />)
         },
+        // h2({ node, ...props }) {
+        //     return <h2>{props.children}</h2></section>
+        // }
     } 
     return (
         <Fragment>
@@ -18,7 +21,7 @@ function PostDetailPage(props) {
                 <title>{title}</title>
                 <meta name='description' content={ excerpt}/>
             </Head>
-        <article>
+        <article className="max-w-2xl">
             <h1 className="title-sec1">{title}</h1>
             <time>{date}</time>
             <div>

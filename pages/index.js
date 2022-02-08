@@ -14,8 +14,11 @@ export default function Home(props) {
         <title>KaniBlog</title>
         <meta name='description' content='WEB関係のお仕事をしております。日々の学習について気ままに発信します。' />
       </Head>
-      <div className='text-center'>
-        <Image src='/img/mv.jpg' width={1440} height={960} />
+      <div className='text-right max-w-5xl mx-auto relative'>
+        <h1 className='absolute z-20 top-1/2 text-3xl md:text-xl sm:text-lg left-1/4 -translate-x-1/2 md:-translate-x-1/4 transform'>よわよわフロントエンド日記</h1>
+        <div className='max-w-2xl inline-block'>
+        <Image src='/img/main.svg' width={951} height={760}/>
+        </div>
       </div>
       <article>
         <section className='mt-16 mb-24'>
