@@ -3,7 +3,7 @@ import PostList from "../../components/posts/post-list"
 import { getFeaturedPosts, getTags } from "../../lib/js/posts-util";
 import Head from "next/head";
 import About from "../../components/about";
-function AllPosts(props) {
+function featuredPosts(props) {
     return (
         <Fragment>
             <Head>
@@ -29,4 +29,5 @@ export function getStaticProps() {
         // revalidate:60
     }
 }
-export default AllPosts
+
+export default featuredPosts
