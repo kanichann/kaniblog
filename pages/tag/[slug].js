@@ -38,8 +38,7 @@ export function getStaticPaths() {
     const tags = getTags();
     return {
         paths: tags.map(tag => ({params:{slug:tag}})),
-        fallback: 'blocking',
-        revalidate:60 * 60 * 5
+        fallback: 'blocking'
     }
 }
 
