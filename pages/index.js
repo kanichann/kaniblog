@@ -86,6 +86,6 @@ export function getStaticProps() {
       allPosts: allPosts,
       tags: tags
     },
-    // revalidate:60
+    revalidate:60 * 60 * 5
   }
 }

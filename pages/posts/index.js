@@ -26,7 +26,7 @@ export function getStaticProps() {
             posts: featuredPosts,
             tags: tags
         },
-        // revalidate:60
+        revalidate:60 * 60 * 5
     }
 }
 export default AllPosts
