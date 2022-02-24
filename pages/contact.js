@@ -72,7 +72,8 @@ export default function Home(props) {
         </Head>
             <article>       
         <h1 className="title-sec1">お問い合わせ</h1>   
-        <p className="pb-4 mb-8 border-b border-solid border-gray-300">感想からご質問まで気軽にご連絡ください。</p>
+        <p>現在、お問合せフォームを解説中です。しばらくお待ちください。</p>
+        {/* <p className="pb-4 mb-8 border-b border-solid border-gray-300">感想からご質問まで気軽にご連絡ください。</p>
         <div className="px-12 md:px-0">
           <form onSubmit={sendMessage}>
               <div className="mb-6">
@@ -96,12 +97,10 @@ export default function Home(props) {
           {sending && (<div className="flex justify-center"><div className="animate-spin h-10 w-10 border-4 border-blue-500 rounded-full border-t-transparent"></div></div>)}
           {receiveResponse.message !== '' && receiveResponse.respnse &&<p className="mt-2 text-orange-500 text-lg">{receiveResponse.message}</p>   }
           {receiveResponse.message !== '' && !receiveResponse.respnse &&<p className="mt-2 text-red-600 text-lg">{receiveResponse.message}</p>   }
-                </div>
-                
+                </div>       */}
                 <About tags={props.tags}/>
         </article>
       </Fragment>
-     
     )
 }
   
