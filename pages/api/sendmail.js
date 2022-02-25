@@ -1,4 +1,4 @@
-const nodemailer = require("nodemailer");
+
 async function sendmail(req, res) {
     //　改行のエスケープシーケンスをbrタグに置換
     console.log(process.env.MAIL_USER);
