@@ -1,3 +1,6 @@
+const sgMail = require('@sendgrid/mail')
+sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+
 
 async function sendmail(req, res) {
     //　改行のエスケープシーケンスをbrタグに置換
@@ -9,15 +12,7 @@ async function sendmail(req, res) {
     const data = req.body;
 
     const { name, email, message } = data;
-    const transporter = nodemailer.createTransport({
-        port: 465,
-        host: "smtp.gmail.com",
-        auth: {
-            user: process.env.MAIL_USER,
-            pass: process.env.MAIL_PASS,
-        },
-        secure: true,
-    });
+
     const toHostMailData = {
         from: process.env.MAIL_USER,
         to: process.env.MAIL_USER,
@@ -49,22 +44,19 @@ KaniBlog
     };
 
     // 送信する
-
-    transporter.sendMail(toHostMailData, function (err, info) {
-        if (err) {
+    async function sendmail() {
+        try {
+            const toHost = await sgMail.send(toHostMailData);
+            const toGuest = await sgMail.send(toGuestMailData);
+            res.status(201).json({ message: 'お問い合わせをありがとうございました。' })
+        } catch (err) {
             res.status(400).json({
                 message: `通信に失敗しました。
 時間をおいて再度お問い合わせください。`})
         }
-    })
-    transporter.sendMail(toGuestMailData, function (err, info) {
-        if (err) {
-            res.status(400).json({
-                message: `通信に失敗しました。
-時間をおいて再度お問い合わせください。`})
-        }
-    })
-    res.status(201).json({ message: 'お問い合わせをありがとうございました。' })
+    } 
+    sendmail()
+    
 };
 
 
