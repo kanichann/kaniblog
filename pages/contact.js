@@ -72,8 +72,8 @@ export default function Home(props) {
         </Head>
             <article>       
         <h1 className="title-sec1">お問い合わせ</h1>   
-        <p>現在、お問合せフォームを開設中です。しばらくお待ちください。</p>
-        <p>SendGrid</p>
+        {/* <p>現在、お問合せフォームを開設中です。しばらくお待ちください。</p>
+        <p>SendGrid</p> */}
         <p className="pb-4 mb-8 border-b border-solid border-gray-300">感想からご質問まで気軽にご連絡ください。</p>
         <div className="px-12 md:px-0">
           <form onSubmit={sendMessage}>
