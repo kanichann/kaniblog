@@ -7,11 +7,11 @@ function PostDetailPage(props) {
     return (
         <Fragment>
         <Head>
-                <title>TAG:{props.slug}</title>
+                <title>TAG：{props.slug}</title>
                 <meta name='description' content={`TAG:${props.slug}`}/>
             </Head>
             <article>
-            <h1 className="title-sec1">TAG:{props.slug}</h1>
+            <h1 className="title-sec1">TAG：{props.slug}</h1>
                 <PostList posts={props.posts} />
                 <About tags={props.tags}/>
             </article>
