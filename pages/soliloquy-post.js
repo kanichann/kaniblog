@@ -1,4 +1,4 @@
-import { useState, useRef, Fragment } from "react"
+import { useState, Fragment } from "react"
 import { useRouter } from 'next/router'
 import Head from "next/head"
 import { getTags } from "../lib/js/posts-util"
@@ -6,7 +6,6 @@ import About from "../components/about"
 
 
 async function send(message) {
-  console.log(message);
   const response = await fetch('/api/soliloquy', {
     method: 'POST',
     body: JSON.stringify({ message: message }),
@@ -15,8 +14,6 @@ async function send(message) {
     }
   });
   const data = await response;
-  console.log(data);
-
   return data
 }
 
@@ -34,7 +31,6 @@ export default function Home(props) {
 
     setSending(false);
     if (result) {
-      console.log("iketa")
       router.push('/soliloquy');
 
     }

@@ -1,12 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 
-
-
-const date = new Date();
-const currentTime = formattedDateTime(date);
-
-function formattedDateTime(date) {
+const currentTime = formattedDateTime();
+function formattedDateTime() {
+    const date = new Date();
     const y = date.getFullYear();
     const m = ('0' + (date.getMonth() + 1)).slice(-2);
     const d = ('0' + date.getDate()).slice(-2);
@@ -24,7 +21,6 @@ function writeFile(path, data) {
         }
     })
 }
-
 function isExistFile(file) {
     try {
         fs.statSync(file);
@@ -39,7 +35,6 @@ function postSoliloquy(res, message) {
     const stats = isExistFile(postsDirectory);
     if (stats) {
         fs.readFile(postsDirectory, (err, file) => {
-            //toStringによってbuffer型を直すことができた。
             hitorigoto = JSON.parse(file);
             hitorigoto.push({
                 date: currentTime,
@@ -61,21 +56,10 @@ function postSoliloquy(res, message) {
 
 }
 
-function getSoliloquy(res) {
-    fs.readFile(postsDirectory, (err, file) => {
-        res.status(400).json({ result: JSON.parse(file) })
-    })
-}
 
 function main(req, res) {
-
-    if (req.method === 'GET') {
-        getSoliloquy(res);
-    }
     if (req.method === 'POST') {
         postSoliloquy(res, req.body.message);
     }
-
-
 }
 export default main

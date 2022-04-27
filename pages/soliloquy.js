@@ -1,4 +1,4 @@
-import { useState, useRef, Fragment } from "react"
+import { Fragment } from "react"
 
 import Head from "next/head"
 import { getTags } from "../lib/js/posts-util"
@@ -11,13 +11,13 @@ export default function Home(props) {
 
 
   function continued(soli, key) {
-    return (<dd key={key} className="relative pl-8 text-lg pb-4"><div class="absolute  w-3 h-3 bg-indigo-100 border border-indigo-600 mt-2 -ml-1.5 -translate-y-1/4 rounded-full left-0"></div>{soli.hitorigoto}</dd>)
+    return (<dd key={key} className="relative pl-8 text-lg pb-2"><div className="absolute  w-3 h-3 bg-indigo-100 border border-indigo-600 mt-2 -ml-1.5 -translate-y-1/4 rounded-full left-0"></div>{soli.hitorigoto}</dd>)
   }
   function notContinued(soli, key) {
     soliDate = soli.date;
-    return (<div className="mt-2" key={key}>
-      <dt className="relative text-sm mt-2  pl-8 text-gray-500 pt-"><div class="absolute w-5 h-5 bg-indigo-300 border-2 border-indigo-600 mt-px -ml-2.5 rounded-full left-0"></div>{soli.date}</dt>
-      <dd className="relative pl-8 text-lg mt-4 pb-2"><div class="absolute  w-3 h-3 bg- border border-indigo-600 bg-indigo-100 mt-2 -ml-1.5 -translate-y-1/4 rounded-full left-0"></div>{soli.hitorigoto}</dd></div>)
+    return (<div className="mt-4" key={key}>
+      <dt className="relative text-sm mt-2  pl-8 text-gray-500 pt-"><div className="absolute w-5 h-5 bg-indigo-300 border-2 border-indigo-600 mt-px -ml-2.5 rounded-full left-0"></div>{soli.date}</dt>
+      <dd className="relative pl-8 text-lg mt-4 pb-2"><div className="absolute  w-3 h-3 bg- border border-indigo-600 bg-indigo-100 mt-2 -ml-1.5 -translate-y-1/4 rounded-full left-0"></div>{soli.hitorigoto}</dd></div>)
   }
 
   return (
@@ -32,9 +32,6 @@ export default function Home(props) {
           <dl className="border-l-2 ml-12 border-orange-300">
             {props.soliloquy.map(soli => {
               key++;
-
-
-
               return soliDate === soli.date ? continued(soli, key) : notContinued(soli, key);
             })}
 
