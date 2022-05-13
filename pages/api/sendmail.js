@@ -52,11 +52,12 @@ KaniBlog
         } catch (err) {
             res.status(400).json({
                 message: `通信に失敗しました。
-時間をおいて再度お問い合わせください。`,err:err})
+時間をおいて再度お問い合わせください。`, err: err
+            })
         }
-    } 
+    }
     sendmail()
-    
+
 };
 
 
